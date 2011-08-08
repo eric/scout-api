@@ -36,6 +36,8 @@ class Scout::Server < Hashie::Mash
     if hash['active_alerts']
       @alert_hash = hash['active_alerts']
       hash.delete('active_alerts')
+    else
+      @alert_hash = []
     end
     @metrics = Scout::MetricProxy.new(self)
     super(hash)
